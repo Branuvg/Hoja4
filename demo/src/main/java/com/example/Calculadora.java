@@ -8,60 +8,12 @@ package com.example;
  * @return Calculadora
  */
 
- import java.io.BufferedReader;
- import java.io.FileReader;
- import java.io.IOException;
  import java.util.ArrayList;
  
  public class Calculadora implements CalculadoraPOSFIX {
  
-     private Stack<Integer> stack = new Stack();
-     private ArrayList<Character> operators = new ArrayList<>();
- 
- 
-     //identificar digitos
-     public boolean isStringDigit(String str) {
-         if (str == null || str.isEmpty()) {
-             return false; 
-         }
-     
-         for (char ch : str.toCharArray()) {
-             if (!Character.isDigit(ch)) {
-                 return false; 
-             }
-         }
-         return true; 
-     }
- 
-     //leer archivo datos
-     public String leer(String Archv) {
-         String operation = " ";
-         try {
-             // Lector
-             BufferedReader br = new BufferedReader(new FileReader(Archv));
-             
-             String line;
-             
-             while ((line = br.readLine()) != null) { 
- 
-                 operation = line; //lina que ingresa en el txt
-                 String [] op = line.split(" ");
-                 for (String c : op) {
-                     if (c.equals("+") || c.equals("-")||c.equals("*")||c.equals("/")){
-                         operators.add(c.charAt(0)); //operaciones posibles
-                     }
-                     else if (isStringDigit(c)== true ) {
-                         this.stack.push(Integer.parseInt(c));
-                         
-                     }
-                 }
-             }
-             br.close();
-         } catch (IOException e) {
-             System.out.println(e.getMessage());
-         }
-         return operation;
-     }
+     public Stack<Integer> stack;
+     public ArrayList<Character> operators;
  
      public int posfix(){
          

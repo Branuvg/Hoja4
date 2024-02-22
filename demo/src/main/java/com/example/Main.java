@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-                Scanner connIn = new Scanner(System.in);
+        Converter converter = new Converter();
+        converter.leer("datos.txt"); 
+
+        Scanner connIn = new Scanner(System.in);
         System.out.println("Como desea almacenar los datos");
         displayOptions();
         int op = connIn.nextInt();
@@ -23,7 +26,7 @@ public class Main {
                 System.out.println("Adios.");
 
         }
-        System.out.println("Seleccione el tipo de patrón de diseño desea utilizar:");
+       /* System.out.println("Seleccione el tipo de patrón de diseño desea utilizar:");
         displayLista();
         int tipo = connIn.nextInt();
         String listType = "";
@@ -36,7 +39,7 @@ public class Main {
                 break;
             default:
                 break;
-            }
+            }*/
     }
 
     private static void displayOptions(){

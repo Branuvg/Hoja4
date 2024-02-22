@@ -1,9 +1,59 @@
 package com.example;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Converter {
+    public Stack<Integer> stack = new Stack();
+    public ArrayList<Character> operators = new ArrayList<>();
     
+     //identificar digitos
+     public boolean isStringDigit(String str) {
+        if (str == null || str.isEmpty()) {
+            return false; 
+        }
+    
+        for (char ch : str.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+
+     //leer archivo datos
+     public String leer(String Archv) {
+
+        // StringBuilder para almacenar el contenido del archivo
+        StringBuilder contenido = new StringBuilder();
+        
+        // Intentar leer el archivo
+        try {
+            BufferedReader lector = new BufferedReader(new FileReader(Archv));
+            String linea;
+            
+            // Leer cada línea del archivo y agregarla al StringBuilder
+            while ((linea = lector.readLine()) != null) {
+                contenido.append(linea);
+                contenido.append("\n"); // Agregar un salto de línea después de cada línea leída (opcional)
+            }
+            
+            lector.close(); // Cerrar el lector
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
+        // Imprimir el contenido del archivo
+        System.out.println("Contenido del archivo:");
+        System.out.println(contenido.toString());
+        return Archv;
+     }
+
+
     int antes(char ch) {
         if (ch == '+' || ch == '-') {
             return 1; // Precedence of + or - is 1
@@ -56,6 +106,7 @@ public class Converter {
     public static void main(String[] args) {
         String infix = "1+2*9";
         Converter converter = new Converter();
+        System.out.println("La operación es: " + converter.leer("datos.txt") );
         System.out.println("Postfix Form Is: " + converter.convertidor(infix));
     }
 }
