@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        LListFactory factory = new LListFactory<>(); 
         Converter converter = new Converter();
         converter.leecion("datos.txt"); 
 
@@ -15,18 +16,21 @@ public class Main {
         switch(op){
             case 1:
                 Stacktype = "arrayList";
+                factory.createList(Stacktype);
                 break;
             case 2:
                 Stacktype = "vector";
+                factory.createList(Stacktype);
                 break;
             case 3:
                 Stacktype = "lista";
+                factory.createList(Stacktype);
                 break;
             default:
                 System.out.println("Adios.");
 
         }
-       /* System.out.println("Seleccione el tipo de patrón de diseño desea utilizar:");
+       System.out.println("Seleccione el tipo de patrón de diseño desea utilizar:");
         displayLista();
         int tipo = connIn.nextInt();
         String listType = "";
@@ -39,7 +43,7 @@ public class Main {
                 break;
             default:
                 break;
-            }*/
+            }
     }
 
     private static void displayOptions(){
@@ -51,7 +55,7 @@ public class Main {
     }
 
     private static void displayLista(){
-        System.out.println("1. Singleton.");
-        System.out.println("2. Factory.");
+        System.out.println("1. Single.");
+        System.out.println("2. Doble.");
     }
 }

@@ -106,7 +106,7 @@ public class Converter {
     public static void main(String[] args) {
         String infix = "1+2*9";
         Converter converter = new Converter();
-        System.out.println("La operación es: " + converter.leecion("C:\\Users\\gabri\\OneDrive\\Documents\\Universidad\\Semestre 3\\Base de Datos\\5, infix\\Hoja4\\demo\\src\\main\\java\\com\\example") );
+        System.out.println("La operación es: " + converter.leecion("datos.txt"));
         System.out.println("Postfix Form Is: " + converter.convertidor(infix));
     }
 }
