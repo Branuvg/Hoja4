@@ -2,10 +2,10 @@ package com.example;
 
 import java.util.Vector;
 
-public class Vector<T> implements UVGQueue<T> {
+public class SVector<T> implements UVGQueue<T> {
     Vector<T> data = null;
 
-    public Vector() {
+    public SVector() {
         data = new Vector<T>();
     }
 
