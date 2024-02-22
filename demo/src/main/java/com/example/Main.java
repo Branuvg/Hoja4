@@ -8,8 +8,12 @@ public class Main {
         Converter converter = new Converter();
         converter.leecion("datos.txt"); 
 
+        System.out.println("Escriba su operación Infix:" );
         Scanner connIn = new Scanner(System.in);
-        System.out.println("Como desea almacenar los datos");
+        String infix = connIn.nextLine();
+        System.out.println("Postfix Form Is: " + converter.convertidor(infix));
+
+        System.out.println("CQue tipo de tack desea?");
         displayOptions();
         int op = connIn.nextInt();
         String Stacktype = "";
@@ -30,20 +34,6 @@ public class Main {
                 System.out.println("Adios.");
 
         }
-       System.out.println("Seleccione el tipo de patrón de diseño desea utilizar:");
-        displayLista();
-        int tipo = connIn.nextInt();
-        String listType = "";
-        switch(op){
-            case 1:
-                listType = "lista enlazada";
-                break;
-            case 2:
-                listType = "lista doble";
-                break;
-            default:
-                break;
-            }
     }
 
     private static void displayOptions(){
