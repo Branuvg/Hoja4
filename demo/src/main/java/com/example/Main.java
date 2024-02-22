@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Converter converter = new Converter();
-        converter.leer("datos.txt"); 
+        converter.leecion("datos.txt"); 
 
         Scanner connIn = new Scanner(System.in);
         System.out.println("Como desea almacenar los datos");
